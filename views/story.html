@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Story</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <a href="/">Home</a>
+      <a href="/genres">Genres</a>
+    </div>
+  </nav>
+
+  <!-- Story Header -->
+  <section class="story-header">
+    <div class="container">
+      <h1 id="story-title">Loading...</h1>
+      <p id="story-description"></p>
+      <img id="story-cover" src="" alt="Cover" style="max-width:300px; margin-top:20px;">
+    </div>
+  </section>
+
+  <!-- Chapters List -->
+  <section class="chapters">
+    <div class="container">
+      <h2>Chapters (<span id="chapter-count">0</span>)</h2>
+      <div id="chapter-list" class="chapter-list">
+        <!-- Chapters จะถูกเติมด้วย JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter Content -->
+  <section id="chapter-content" class="chapter-content" style="display:none;">
+    <h3 id="chapter-title"></h3>
+    <p id="chapter-text"></p>
+    <button id="back-to-list">Back to chapters</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 WebNovel</p>
+    </div>
+  </footer>
+
+  <script src="/js/first_story.js"></script>
+</body>
+</html>

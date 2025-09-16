@@ -1,0 +1,32 @@
+main {
+  height: 100vh;
+}
+
+.list-group-item a {
+  transition: color 0.3s;
+  color: var(--color-dark-black);
+}
+
+.list-group-item {
+  transition: background-color 0.2s;
+}
+
+.list-group-item:hover {
+  background-color: rgb(203, 203, 203);
+}
+
+.list-group-item a:hover {
+  color: var(--color-dark-black);
+}
+
+.list-group-item:active {
+  background-color: rgb(255, 133, 133);
+}
+
+.list-group-item a:active {
+  color: white;
+}
+
+.bg-color {
+  background-color: var(--color-red);
+}

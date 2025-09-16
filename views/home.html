@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Web Novel</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">WebNovel</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">หน้าแรก</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">หมวดหมู่</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">นิยายใหม่</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">เข้าสู่ระบบ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="text-white text-center py-5">
+      <div class="container">
+        <img src="/pic/banner.png" alt="banner-header" id="banner" />
+        <h1 class="display-4">อ่านนิยายออนไลน์ได้ทุกที่ ทุกเวลา</h1>
+        <p class="lead">เลือกอ่านนิยายโปรดของคุณ หรือค้นพบเรื่องใหม่ๆ!</p>
+        <a href="/story/test" class="btn btn-light">เริ่มต้นอ่านเลย</a>
+      </div>
+    </header>
+
+    <!-- Featured Novels -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="mb-4 text-danger">นิยายแนะนำ</h2>
+        <!-- <div class="row"> -->
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
+          <!-- Novel Card 1 -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="img-container">
+                <img
+                  src="/pic/Novel1.png"
+                  class="card-img-top"
+                  alt="Novel Cover"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">โรแมนติก-ใต้เงาดอกซากุระ</h3>
+                <p class="card-text">
+                  เนื้อเรื่องย่อ เด็กหนุ่มไทยที่ไปเรียนแลกเปลี่ยนญี่ปุ่น
+                  บังเอิญพบหญิงสาวที่สวนทุกเช้า เขาแอบวาดรูปเธอแต่ไม่กล้าเปิดเผย
+                  วันหนึ่งหญิงสาวหายไป ทิ้งเพียงโปสการ์ดลึกลับ
+                  ความสัมพันธ์ที่เริ่มจากความเงียบ
+                  กลายเป็นความทรงจำโรแมนติกที่ทั้งหวานและเศร้า
+                </p>
+              </div>
+              <a href="/first_story" class="btn btn-primary readButton">อ่านต่อ</a>
+            </div>
+          </div>
+
+          <!-- Novel Card 2 -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="img-container">
+                <img
+                  src="/pic/Novel2.png"
+                  class="card-img-top"
+                  alt="Novel Cover"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">แฟนตาซี-บันทึกแห่งดวงดาว</h3>
+                <p class="card-text">
+                  เนื้อเรื่องย่อ โลกที่พระจันทร์คือประตูสู่มิติ
+                  เด็กสาวพบสมุดที่เขียนได้เฉพาะกลางคืน
+                  และสิ่งที่เขียนจะเกิดขึ้นจริง แต่ทุกครั้งที่ใช้พลัง
+                  เธอต้องแลกด้วยความทรงจำของตัวเอง
+                  สุดท้ายต้องเลือกระหว่างปกป้องโลกกับการรักษาความเป็นตัวตน
+                </p>
+              </div>
+              <a href="#" class="btn btn-primary readButton">อ่านต่อ</a>
+            </div>
+          </div>
+
+          <!-- Novel Card 3 -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="img-container">
+                <img
+                  src="/pic/Novel3.png"
+                  class="card-img-top"
+                  alt="Novel Cover"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">สืบสวน/ระทึกขวัญ-เงาในกระจก</h3>
+                <p class="card-text">
+                  เนื้อเรื่องย่อ นักสืบสาวเจอคดีฆาตกรรมปริศนา
+                  ทุกศพถูกพบในห้องที่มีเพียงกระจกบานใหญ่
+                  และเงาที่สะท้อนในนั้นไม่ใช่ของเหยื่อ เบาะแสทั้งหมดบ่งชี้ว่า
+                  “ฆาตกร” อาจเป็นเธอเองที่เห็นอยู่ในกระจก
+                  ความจริงซ่อนอยู่ในเงาที่บิดเบี้ยว
+                </p>
+              </div>
+              <a href="#" class="btn btn-primary readButton">อ่านต่อ</a>
+            </div>
+          </div>
+
+          <!-- Novel Card 4 -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="img-container">
+                <img
+                  src="/pic/Novel4.png"
+                  class="card-img-top"
+                  alt="Novel Cover"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">วิทยาศาสตร์/ไซไฟ-สุดขอบกาแล็กซี</h3>
+                <p class="card-text">
+                  เนื้อเรื่องย่อ ศตวรรษที่ 23 มนุษย์ย้ายถิ่นฐานไปดาวใหม่
+                  แต่เด็กหนุ่มช่างเครื่องบนยานตรวจพบสัญญาณประหลาดจากโลกเก่าที่ถูกทิ้งร้าง
+                  สัญญาณนั้นคือเสียงร้องไห้ของทารก
+                  ทำให้เขาต้องออกเดินทางเพื่อค้นหาความจริงที่อาจเปลี่ยนชะตากรรมมนุษยชาติ
+                </p>
+              </div>
+              <a href="#" class="btn btn-primary readButton">อ่านต่อ</a>
+            </div>
+          </div>
+
+          <!-- Novel Card 5 -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="img-container">
+                <img
+                  src="/pic/Novel5.png"
+                  class="card-img-top"
+                  alt="Novel Cover"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">ดราม่า-เสียงเปียโนในคืนฝนตก</h3>
+                <p class="card-text">
+                  เนื้อเรื่องย่อ ชายชราที่เคยเป็นนักเปียโนดัง นั่งเล่นในบาร์เก่า
+                  ๆ ทุกคืนฝนตก รอคนรักที่สัญญาจะกลับมาฟังแต่ไม่เคยมา วันหนึ่ง
+                  เด็กสาวปริศนาขอเพลงที่ไม่มีใครรู้จัก
+                  ซึ่งเป็นเพลงที่เขาแต่งให้เธอเมื่อ 40 ปีก่อน
+                  ความทรงจำเก่าถูกปลุกขึ้นพร้อมน้ำตา
+                </p>
+              </div>
+              <a href="#" class="btn btn-primary readButton">อ่านต่อ</a>
+            </div>
+          </div>
+
+          <!-- Novel Card 6 -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="img-container">
+                <img
+                  src="/pic/Novel6.png"
+                  class="card-img-top"
+                  alt="Novel Cover"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">ตลก/คอมเมดี้-หอพักวุ่น นักศึกษาป่วน</h3>
+                <p class="card-text">
+                  เนื้อเรื่องย่อ เรื่องราวของนักศึกษา 4 คนในหอพักเล็ก ๆ
+                  ที่เต็มไปด้วยความวุ่นวาย ทั้งคนซีเรียสสุดขั้ว คนติสต์แตก
+                  คนรักสัตว์เกินเหตุ และคนที่ใช้ไมโครเวฟทำกับข้าวทุกอย่าง
+                  ทุกวันคือความโกลาหลแต่ก็อบอุ่นไปด้วยมิตรภาพ
+                </p>
+              </div>
+              <a href="#" class="btn btn-primary readButton">อ่านต่อ</a>
+            </div>
+          </div>
+
+          <!-- Novel test -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="img-container">
+                <img
+                  src="/pic/Novel6.png"
+                  class="card-img-top"
+                  alt="Novel Cover"
+                />
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">นักศึกษาป่วน</h3>
+                <p class="card-text">
+                  เนื้อเรื่องย่อ 
+                </p>
+              </div>
+              <a href="#" class="btn btn-primary readButton">อ่านต่อ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-white text-center py-4 mb-4">
+      <div class="container">
+        <p class="mb-0">© 2025 WebNovel. สงวนลิขสิทธิ์.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

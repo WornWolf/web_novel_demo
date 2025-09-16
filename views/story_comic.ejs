@@ -1,0 +1,57 @@
+<%- include('./layouts/head.ejs') %>
+<link rel="stylesheet" href="/css/story.css">
+</head>
+
+<body>
+  <div class="page-container">
+    <!-- ✅ Navbar -->
+    <%- include('./layouts/navbar.ejs') %>
+
+    <!-- ✅ Main Content -->
+    <main class="content-wrap">      <!-- Story Header -->
+       <div class="card container d-flex flex-row w-75 mb-3 py-3 shadow">
+
+         <section class="story-header pt-2">
+           <div class="container ">
+             
+             <% if (cover) { %>
+              <img id="story-cover" src="<%= cover %>" alt="Cover" style="max-width:300px; margin-top:20px;">
+              <% } %>
+            </div>
+          </section>
+          
+          <!-- ✅ เรื่องย่อ -->
+          <% if (description) { %>
+            <section class="story-description pt-2">
+              <div class="container">
+                <h1 id="story-title"><%= comicId %></h1>
+                <h5>เรื่องย่อ</h5>
+                <p><%= description %></p>
+              </div>
+            </section>
+            <% } %>
+          </div>
+
+      <!-- Chapters List -->
+      <section class="chapters">
+        <div class="container ">
+          <h2>Chapters (<%= chapters.length %>)</h2>
+          <div id="chapter-list h-" class="chapter-list">
+            <% chapters.forEach(chapter => { %>
+              <a href="/comic/<%= comicId %>/<%= chapter %>" class="btn btn-primary readButton">
+                <%= chapter %>
+              </a>
+            <% }) %>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ✅ Footer -->
+    <%- include('./layouts/footer.ejs') %>
+  </div>
+
+  <!-- Scripts -->
+  <%- include('./layouts/script.ejs') %>
+</body>
+</html>

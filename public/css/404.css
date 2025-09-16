@@ -1,0 +1,33 @@
+.container {
+  text-align: center;
+}
+h1 {
+  font-size: 6rem;
+  color: #ff4d4d;
+  margin: 0;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main p {
+  font-size: 1.5rem;
+  margin: 10px 0 20px;
+}
+
+main .container a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ff4d4d;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+
+

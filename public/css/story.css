@@ -1,0 +1,36 @@
+.chapter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 18px;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.chapter-item {
+  border-radius: 5px;
+  text-align: start;
+  width: max-content;
+  background-color: var(--color-red);
+}
+
+.img-container {
+  width: 40%;
+}
+
+#story-title {
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.genre {
+  font-size: 0.8em;
+  padding: 4px 6px;
+  margin-right: 4px;
+  border: var(--color-red) 2px solid;
+  border-radius: 5px;
+  color: var(--color-red);
+}
+

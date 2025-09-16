@@ -1,0 +1,59 @@
+<%- include('./layouts/head.ejs') %>
+<link rel="stylesheet" href="/css/home.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+</head>
+<body>
+  <!-- Navbar -->
+  <%- include('./layouts/navbar.ejs') %>
+  </nav>
+
+  <!-- Header Section -->
+  <header class="text-white text-center py-5">
+    <div class="container">
+      <img src="/banner.png" alt="banner-header" id="banner" />
+      <h1 class="display-4">อ่านการ์ตูนออนไลน์ได้ทุกที่ ทุกเวลา</h1>
+      <p class="lead">เลือกอ่านการ์ตูนโปรดของคุณ หรือค้นพบเรื่องใหม่ๆ!</p>
+      <a href="/" class="btn btn-light">กลับไปหน้า Novel</a>
+      <hr class="mt-5">
+    </div>
+  </header>
+
+  <main>
+    <!-- Featured Comics -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="mb-4 text-danger">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+          </svg>  การ์ตูนทั้งหมด
+        </h2>
+        <section class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4" id="card-list">
+          <!-- Comic Cards -->
+          <% comics.forEach(comic => { %>
+            <article class="col">
+              <div class="card h-100 shadow">
+                <div class="img-container">
+                  <a href="/comic/<%= comic.id %>">
+                    <img src="<%= comic.cover || '/pic/default.png' %>" alt="<%= comic.name %> Cover" class="card-img-top" />
+                  </a>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="card-title"><%= comic.name %></h3>
+                  <a href="/comic/<%= comic.id %>" class="btn btn-primary mt-auto">อ่านต่อ</a>
+                </div>
+              </div>
+            </article>
+          <% }) %>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <%- include('./layouts/footer.ejs') %>
+  </footer>
+
+  <!-- script -->
+   <%- include('./layouts/script.ejs')%>
+</body>
+</html>
