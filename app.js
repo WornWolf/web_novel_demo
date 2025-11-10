@@ -2,7 +2,7 @@ const serverless = require("serverless-http");
 const express = require("express");
 const app = express();
 const path = require("path");
-const rootDir = require("./util/path");
+const rootDir = path.join(__dirname);
 const novelRouter = require("./routes/novel");
 
 // Set Template Engine
