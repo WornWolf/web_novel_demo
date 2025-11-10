@@ -7,7 +7,7 @@ const novelRouter = require("./routes/novel");
 
 // Set Template Engine
 app.set("view engine", "ejs");
-app.set("views", "views");
+app.set("views", path.join(rootDir, "views"));
 
 // Set JSON and body
 app.use(express.json());
