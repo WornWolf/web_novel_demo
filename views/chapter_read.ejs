@@ -1,0 +1,94 @@
+<%- include('./layouts/head.ejs') %>
+  <link rel="stylesheet" href="/css/chapter.css">
+</head>
+  <body>
+    <%- include('./layouts/navbar.ejs') %>
+    </nav>
+
+  <main>
+    <!-- Path linker -->
+    <div class="container">
+      <p class="path-linker">
+        <a href="/">Home</a> /
+        <a href="/novel/<%= novel.id %>" ><%= novel.name%></a> /
+        Chapter <%= chapter.chapterNumber%> - <%= chapter.title %>
+      </p>
+    </div>
+
+    <div class="container my-3 ">
+      <!-- options buttons on top -->
+      <div class="link-btn d-flex justify-content-between">
+        <a href="/novel/<%= novel.id %>" class="btn btn-secondary">⬅ กลับไปหน้ารวมตอน</a>
+         <div class="btn-options">
+            <button class="btn btn-secondary" onclick="decreaseFont()" id="fontDown">A-</button>
+            <button class="btn btn-secondary" onclick="increaseFont()" id="fontUp">A+</button>
+            <!-- Prev/Next Button -->
+            <% 
+              const totalChapters = novel.chapters.length;
+              const currentIndex = novel.chapters.findIndex(c => c.chapterNumber === chapter.chapterNumber);
+            %>
+
+            <!-- Previous -->
+            <% if (currentIndex > 0) { %>
+              <a href="/novel/<%= novel.id %>/chapter/<%= novel.chapters[currentIndex - 1].chapterNumber %>" 
+                class="btn btn-warning px-4">
+                Prev
+              </a>
+            <% } %>
+
+            <!-- Next -->
+            <% if (currentIndex < totalChapters - 1) { %>
+              <a href="/novel/<%= novel.id %>/chapter/<%= novel.chapters[currentIndex + 1].chapterNumber %>" 
+                class="btn btn-warning px-4">
+                Next
+              </a>
+            <% } %>
+          </div>
+      </div>
+
+      <!-- contents sections -->
+      <section class="chapter-read my-4 py-4 px-5" id="chapter-read">
+        <div class="text-container">
+            <p class="chapter-title">ตอนที่ <%= chapter.chapterNumber %> - <%= chapter.title %></p>
+            <% chapter.content.forEach(p => {%>
+              <p class="text-contents"><%= p %></p><br>
+              <%}) %>
+            </div>
+      </section>
+
+      <!-- Options button at bottom -->
+      <div class="link-btn d-flex justify-content-center">
+         <div class="btn-options">
+            <!-- Prev/Next Button -->
+            <!-- Previous -->
+            <% if (currentIndex > 0) { %>
+              <a href="/novel/<%= novel.id %>/chapter/<%= novel.chapters[currentIndex - 1].chapterNumber %>" 
+                class="btn btn-warning px-4">
+                Prev
+              </a>
+            <% } %>
+
+            <!-- Next -->
+            <% if (currentIndex < totalChapters - 1) { %>
+              <a href="/novel/<%= novel.id %>/chapter/<%= novel.chapters[currentIndex + 1].chapterNumber %>" 
+                class="btn btn-warning px-4">
+                Next
+              </a>
+            <% } %>
+          </div>
+      </div>
+    </div>
+
+      <!-- scroll up button -->
+      <a href="#" class="btn btn-secondary border-none bg-danger text-white align-middle rounded-circle top-page"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"/></svg></a>
+    </main>
+
+      <!-- Footer -->
+      <%- include('./layouts/footer.ejs') %>
+    </footer>
+    
+    <!-- script -->
+    <%- include('./layouts/script.ejs')%>
+  </body>
+</html>
+

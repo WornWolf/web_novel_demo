@@ -1,0 +1,83 @@
+<%- include('./layouts/head.ejs') %>
+  <link rel="stylesheet" href="/css/story.css">
+  </head>
+  <body>
+    <%- include('./layouts/navbar.ejs') %>
+      </nav>
+      <main>
+    <!-- Path linker -->
+        <div class="container">
+          <p class="path-linker">
+            <a href="/">Home</a> /
+            <a href="/novel/<%= novel.id %>" ><%= novel.name%></a>
+          </p>
+        </div>
+
+        <!-- Story header -->
+        <section class="story-header">
+          <div class="container p-2 card d-flex flex-row  flex-wrap-sm w-75 shadow">
+              <!-- image Cover -->
+              <div class="img-container rounded-2">
+                <% if (novel.picture) { %>
+                  <img src="<%= novel.picture %>" alt="Cover" class="img-fluid" style="width: 300px;">
+                  <% } %>
+                </div>
+             
+              <div class="card-body me-4">
+                  <h1 id="story-title"><%= novel.name %></h1>
+                  <p>Genres:
+                   <% novel.genres.forEach(function(g) { %>
+                      <a href="/genres/<%= g.toLowerCase() %>" class="text-decoration-none ">
+                        <span class="genre"><%= g %></span>
+                      </a>
+                    <% }) %>
+                  </p>
+                  <p id="story-description"><%= novel.description %></p>
+                  <div class="pageLink">
+                    <!-- ตอนแรก -->
+                    <a href="/novel/<%= novel.id %>/chapter/<%= novel.chapters[0].chapterNumber %>" 
+                      class="btn btn-danger me-2">
+                      ตอนแรก
+                    </a>
+
+                    <!-- ตอนล่าสุด -->
+                    <a href="/novel/<%= novel.id %>/chapter/<%= novel.chapters[novel.chapters.length - 1].chapterNumber %>" 
+                      class="btn btn-warning">
+                      ตอนล่าสุด
+                    </a>
+                  </div>
+              </div>
+            </div>
+          </section>
+          
+        <!-- Chapters List -->
+        <section class="chapters" id="chapters">
+          <div class="container">
+            <h2>
+              Chapters (<%= novel.chapters.length %>)
+               <!-- sort button -->
+              <button id="sortBtn" class="btn btn-none btn-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ff4d4d"><path d="M320-440v-287L217-624l-57-56 200-200 200 200-57 56-103-103v287h-80ZM600-80 400-280l57-56 103 103v-287h80v287l103-103 57 56L600-80Z"/></svg>
+              </button>
+            </h2>
+            <div id="chapter-list" class="chapter-list">
+              <% novel.chapters.slice().reverse().forEach(chapter => { %>
+                  <a href="/novel/<%= novel.id %>/chapter/<%= chapter.chapterNumber %>" 
+                    class="btn btn-primary w-50">
+                    Chapter <%= chapter.chapterNumber %> - <%= chapter.title %>
+                  </a>
+                <% }) %>
+            </div>
+          </div>
+        </section>  
+      </main>
+        
+        <!-- Footer -->
+          <%- include('./layouts/footer') %>
+      </footer>
+      
+      <!-- script -->
+   <%- include('./layouts/script.ejs')%>
+    </body>
+</html>
+

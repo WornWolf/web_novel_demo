@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">WebNovel</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link <%= activePage == 'home' ? 'active' : '' %>"
+            href="/"
+            >หน้าแรก</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link <%= activePage == 'genres' ? 'active' : '' %>"
+            href="/genres"
+            >หมวดหมู่</a
+          >
+        </li>
+        <!-- Toggle Theme Button -->
+        <li class="nav-item d-flex align-items-center mx-2">
+          <div class="toggle-switch" onclick="toggleTheme()">
+            <div class="toggle-knob"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

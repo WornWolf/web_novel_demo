@@ -1,0 +1,34 @@
+<%- include('./layouts/head.ejs') %>
+    <link rel="stylesheet" href="/css/genres.css" />
+  </head>
+  <body>
+    <%-include('./layouts/navbar.ejs')%>
+    </nav>
+
+    <main>
+      <!-- Content  -->
+      <section>
+        <div class="container mt-4 d-flex flex-column align-items-center">
+          <h1>หมวดหมู่</h1>
+          <ul class="list-group mt-3 w-50 shadow-lg">
+            <% genreLinks.forEach(function(g) { %>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="<%= g.link %>" class="text-decoration-none w-100 d-flex justify-content-between align-items-center">
+                  <span><%= g.eng %> / <%= g.thai %></span>
+                  <!-- <span class="badge bg-color rounded-pill"><%= g.count %></span> -->
+                </a>
+              </li>
+            <% }) %>
+          </ul>
+          </div>
+        </section>
+      </main>
+        
+        <!-- Footer -->
+    <%- include('./layouts/footer.ejs') %>
+    </footer>
+
+    <!-- script -->
+   <%- include('./layouts/script.ejs')%>
+  </body>
+</html>

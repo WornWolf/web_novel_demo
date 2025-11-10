@@ -1,0 +1,55 @@
+<%- include('./layouts/head.ejs') %>
+    <link rel="stylesheet" href="/css/home.css" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <%- include('./layouts/navbar.ejs')%>
+    </nav>
+    <main>
+    
+    <section class="py-5">
+  <div class="container">
+    <h2 class="mb-4 text-danger"><%= contentTitle %> (<%= genreCount %>)</h2>
+      <section class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="card-list">
+      <% novels.forEach(novel => { %>
+      <!-- Novel Cards -->
+        <article class="col">
+          <div class="card h-100 shadow">
+            <div class="img-container">
+              <a href="/novel/<%= novel.id %>">
+                <img src="<%= novel.picture || '/pic/default.png' %>" alt="<%= novel.name %> Cover" class="img-fluid"/>
+                <span class="m-2 py-1 px-2 rounded-2" id="showchapters">
+                  Ch. 
+                  <%= novel.chapters[0].chapterNumber %>-
+                  <%= novel.chapters[novel.chapters.length - 1].chapterNumber %>
+                </span>
+              </a>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title"><%= novel.name %></h3>
+              <div class="genres-label pb-3 mt-3">
+                <% novel.genres.forEach(function(g) { %>
+                  <a href="/genres/<%= g.toLowerCase() %>" class="text-decoration-none genres-link">
+                    <span class="genre"><%= g %></span>
+                  </a>
+                <% }) %>
+                </div>
+                <p class="card-text"><%= novel.description %></p>
+              </div>
+              <a href="/novel/<%= novel.id %>" class="btn btn-primary readButton">อ่านต่อ</a>
+            </div>
+          </article>
+          <% }) %>
+        </section>
+      </div>
+          </section>
+    </main>
+
+    <!-- Footer -->
+    <%- include('./layouts/footer.ejs') %>
+    </footer>
+    
+   <!-- script -->
+   <%- include('./layouts/script.ejs')%>
+  </body>
+</html>

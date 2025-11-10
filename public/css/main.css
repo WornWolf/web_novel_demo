@@ -1,0 +1,166 @@
+@font-face {
+  font-family: "mainFont";
+  src: url("/fonts/K2D-Regular.ttf");
+}
+
+:root {
+  --color-orange: #ea8912;
+  --color-red: #ff4d4d;
+  --color-dark-red: #cc0000;
+  --color-blood: #8b0000;
+  --color-light-black: #212121;
+  --bg-main-color: #1a1a1a;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "mainFont", "Courier New", Courier, monospace;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-main-color);
+  color: #fff;
+}
+
+.navbar,
+footer {
+  background-color: #212121;
+}
+
+main {
+  padding: 20px;
+  height: 100%;
+}
+
+.navbar-brand,
+.nav-link {
+  color: var(--color-red) !important;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: #ffffff !important;
+}
+
+.nav-item:hover {
+  text-shadow: 0 0 15px var(--color-orange);
+}
+
+.path-linker a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.path-linker a:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--color-red);
+  border-color: var(--color-red);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-dark-red);
+  border-color: var(--color-dark-red);
+}
+
+.btn.btn-primary:active {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: black;
+}
+
+.btn-light {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+}
+
+.card {
+  background-color: var(--color-light-black);
+  color: white;
+  border: rgb(47, 47, 47) 1px solid;
+}
+
+/* Toggle Theme */
+/* toggle-switch animation */
+.toggle-switch {
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  background-color: wheat;
+  border-radius: 13px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
+
+.toggle-knob {
+  width: 22px;
+  height: 22px;
+  background-color: var(--bg-main-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 0.3s ease, background-color 0.3s ease;
+}
+
+body.light {
+  background-color: #ffffff !important;
+  color: inherit !important;
+}
+
+body.light .card {
+  background-color: #fff;
+  color: inherit;
+  border-color: #ccc;
+}
+
+body.light .navbar,
+body.light footer {
+  background-color: var(--color-red) !important;
+}
+
+body.light header {
+  color: inherit !important;
+}
+
+body.light .navbar a {
+  color: #fff !important;
+}
+
+body.light .nav-link.active {
+  color: var(--color-blood) !important;
+}
+
+body.dark .toggle-switch {
+  background-color: var(--color-dark-red);
+}
+
+body.dark .toggle-knob {
+  background-color: var(--color-light-black);
+}
+
+.toggle-switch.active .toggle-knob {
+  left: 26px;
+}
+
+
+/* ให้ body และ element ภายในเปลี่ยนสีแบบ smooth */
+body,
+body .card,
+body .navbar,
+body footer,
+body header,
+body .navbar a,
+body .btn-primary,
+body .btn-light {
+  transition: background-color 0.4s ease, color 0.4s ease,
+    border-color 0.4s ease;
+}
