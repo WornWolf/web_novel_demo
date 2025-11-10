@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
-const rootDir = require("../util/path");
+const dataDir = path.join(__dirname, "../data");
 const fs = require("fs");
 const novelsTools = require("../util/novelsTools");
 
 // Read file JSON
 const novels = novelsTools.loadNovels();
 const genreMap = JSON.parse(
-  fs.readFileSync(path.join(rootDir, "data", "genres-map.json"), "utf-8")
+  fs.readFileSync(path.join(dataDir, "genres-map.json"), "utf-8")
 );
 
 // Home Page 
@@ -138,100 +138,6 @@ router.get("/genres/:genre", (req, res) => {
     activePage: `${genre}`,
     novels: novelsInGenre,
     contentTitle: `${genreTitle}`
-  });
-});
-
-// Comic Home Page
-router.get("/comic", (req, res) => {
-  const comicDir = path.join(rootDir, "data", "comic");
-  let comics = [];
-
-  fs.readdirSync(comicDir, { withFileTypes: true }).forEach((dirent) => {
-    if (dirent.isDirectory()) {
-      const coverPath = path.join(comicDir, dirent.name, "cover.jpg");
-      comics.push({
-        id: dirent.name,
-        name: dirent.name,
-        cover: fs.existsSync(coverPath)
-          ? `/comic_data/${dirent.name}/cover.jpg`
-          : "/pic/default.png",
-      });
-    }
-  });
-
-  res.render("comic_home", {
-    pageTitle: "Comic Home",
-    comics,
-    activePage: "comic",
-  });
-});
-
-// Comic Page (list chapters)
-router.get("/comic/:comicId", (req, res) => {
-  const comicId = req.params.comicId;
-  const comicPath = path.join(rootDir, "data", "comic", comicId);
-
-  if (!fs.existsSync(comicPath)) {
-    return res
-      .status(404)
-      .render("404", { pageTitle: "Comic not found", activePage: "404" });
-  }
-
-  // อ่าน chapter ทั้งหมด
-  const chapters = fs
-    .readdirSync(comicPath, { withFileTypes: true })
-    .filter((dirent) => dirent.isDirectory())
-    .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }))
-    .map((dirent) => dirent.name);
-
-  // หา cover
-  const coverPath = path.join(comicPath, "cover.jpg");
-  const cover = fs.existsSync(coverPath)
-    ? `/comic_data/${comicId}/cover.jpg`
-    : null;
-
-  // 🔹 อ่านไฟล์ description.txt
-  const descriptionPath = path.join(comicPath, "description.txt");
-  let description = "";
-  if (fs.existsSync(descriptionPath)) {
-    description = fs.readFileSync(descriptionPath, "utf-8");
-  }
-
-  // ส่งข้อมูลไป render
-  res.render("story_comic", {
-    pageTitle: comicId,
-    comicId,
-    chapters,
-    cover,
-    description, // 🔹 เพิ่ม description ตรงนี้
-    activePage: "comic",
-  });
-});
-
-
-// Read Comic (show images in chapter)
-router.get("/comic/:comicId/:chapter", (req, res) => {
-  const { comicId, chapter } = req.params;
-  const chapterPath = path.join(rootDir, "data", "comic", comicId, chapter);
-
-  if (!fs.existsSync(chapterPath)) {
-    return res
-      .status(404)
-      .render("404", { pageTitle: "Chapter not found", activePage: "404" });
-  }
-
-  const images = fs
-    .readdirSync(chapterPath)
-    .filter((file) => /\.(webp|jpg|png|jpeg|gif)$/.test(file))
-    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
-    .map((img) => `/comic_data/${comicId}/${chapter}/${img}`);
-
-  res.render("read_comic", {
-    pageTitle: `${comicId} - ${chapter}`,
-    comicId,
-    chapter,
-    images,
-    activePage: "comic",
   });
 });
 
