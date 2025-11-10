@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
-const rootDir = require("../util/path");
 
-const dataPath = path.join(rootDir, "data", "novels.json");
+// relative path จากไฟล์นี้ไปยัง data
+const dataPath = path.join(__dirname, "../data/novels.json");
 
 function loadNovels() {
   try {
@@ -19,7 +19,7 @@ function saveNovels(novels) {
   try {
     fs.writeFileSync(
       dataPath,
-      JSON.stringify({ novels }, null, 2), // indent 2 space
+      JSON.stringify({ novels }, null, 2),
       "utf-8"
     );
   } catch (err) {
